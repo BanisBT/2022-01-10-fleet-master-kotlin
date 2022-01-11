@@ -10,9 +10,11 @@ fun Application.configure() {
     configureMonitoring()
     configureTemplating()
     configureSerialization()
+    configureDependencyInjection()
 }
 
 fun main() {
     embeddedServer(Jetty, port = 8080, host = "0.0.0.0") {
+        configure()
     }.start(wait = true)
 }
